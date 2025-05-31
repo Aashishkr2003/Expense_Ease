@@ -3,7 +3,7 @@ import {
   type FinancialRecord,
   useFinancialRecords,
 } from "../../contexts/financial-record-context";
-import { useTable, type Column, type CellProps, type Row } from "react-table";
+import { useTable, type Column, type CellProps } from "react-table";
 
 // Add these for dropdown options
 const CATEGORY_OPTIONS = [
@@ -223,7 +223,7 @@ export const FinancialRecordList = () => {
           })}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, idx) => {
+          {rows.map((row) => {
             prepareRow(row);
             const { key: rowKey, ...restRowProps } = row.getRowProps();
             return (
