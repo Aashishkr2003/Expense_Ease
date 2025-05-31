@@ -1,0 +1,138 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Add a fallback background color for all pages */
+  background: #f5f7fa;
+}
+
+/* Auth page background effect */
+body:has(.custom-auth-container) {
+  /* Soft blue gradient with subtle pattern overlay */
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  min-height: 100vh;
+  /* Optional: add a subtle pattern overlay */
+  background-image:
+    repeating-radial-gradient(circle at 0 0, #e0eafc, #cfdef3 40px, transparent 80px),
+    linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  background-blend-mode: lighten;
+}
+
+/* Auth page background effect (SignedOut page) */
+body:has(.custom-auth-container):not(:has(.dashboard-container)) {
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 60%, #b6c6e3 100%);
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  /* Add a geometric SVG pattern overlay for a modern look */
+  background-image:
+    url("data:image/svg+xml;utf8,<svg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='0' width='60' height='60' fill='none'/><circle cx='30' cy='30' r='28' stroke='%234e97e5' stroke-width='2' fill='none' opacity='0.08'/><rect x='10' y='10' width='40' height='40' rx='8' stroke='%236dd5ed' stroke-width='2' fill='none' opacity='0.08'/></svg>"),
+    repeating-radial-gradient(circle at 80% 10%, #6dd5ed33 0px, transparent 400px),
+    repeating-radial-gradient(circle at 20% 90%, #4e97e533 0px, transparent 400px),
+    linear-gradient(120deg, #e0eafc 0%, #cfdef3 60%, #b6c6e3 100%);
+  /* Blend the SVG pattern softly */
+  background-blend-mode: lighten, lighten, normal;
+}
+
+/* Dashboard page background effect */
+body:has(.dashboard-container) {
+  background: linear-gradient(120deg, #f8fafc 0%, #e0eafc 60%, #cfd9df 100%);
+  min-height: 100vh;
+  background-image:
+    repeating-linear-gradient(135deg, #e0eafc22 0px, #e0eafc22 2px, transparent 2px, transparent 40px),
+    linear-gradient(120deg, #f8fafc 0%, #e0eafc 60%, #cfd9df 100%);
+  background-blend-mode: lighten;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Theme styles */
+body[data-theme="light"] {
+  --bg-main: #f5f7fa;
+  --bg-gradient: linear-gradient(120deg, #f8fafc 0%, #e0eafc 60%, #cfd9df 100%);
+  --text-main: #213547;
+  --box-bg: #fff;
+  --input-bg: #fff;
+  --input-border: #ccc;
+}
+
+body[data-theme="dark"] {
+  --bg-main: #232b36;
+  --bg-gradient: linear-gradient(120deg, #232b36 0%, #2c3e50 100%);
+  --text-main: #f5f7fa;
+  --box-bg: #232b36;
+  --input-bg: #232b36;
+  --input-border: #444a5a;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+body:has(.dashboard-container) {
+  background: var(--bg-gradient);
+}
+body:has(.custom-auth-container) {
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  /* ...existing code... */
+}
+
+/* Optional: style the theme toggle button */
+.theme-toggle-btn {
+  transition: color 0.2s;
+}
+.theme-toggle-btn:focus {
+  outline: 2px solid #4e97e5;
+}
+
+/* ...existing code... */
