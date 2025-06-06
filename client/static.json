@@ -1,6 +1,10 @@
 {
   "routes": [
     {
+      "src": "/auth/(.*)",
+      "dest": "https://relaxed-weevil-40.clerk.accounts.dev"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
