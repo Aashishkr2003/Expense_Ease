@@ -22,6 +22,10 @@ mongoose
 
 app.use("/financial-records", financialRecordRouter);
 
+app.get("/", (req, res) => {
+  res.send("ExpenseEase backend is running.");
+});
+
 app.listen(port, () => {
   console.log(`Server Running on Port ${port}`);
 });
